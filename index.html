@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPS Tracking</title>
+    <a href="/tracking.html"></a>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+        }
+
+        .header {
+            background: #fff;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .actions img {
+            width: 30px;
+        }
+
+        .actions div {
+            margin-left: 15px;
+            width: 30px;
+            height: 30px;
+            /* background: #ffcc00; */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .banner {
+            background: #145388;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 29px;
+            height: 90px;
+            margin-top: 35px;
+        }
+
+        .track-container {
+            background: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .track-container h2 {
+            margin-top: 0;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+        }
+
+        .track-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 45px;
+            margin-top:0px;
+        }
+
+        .track-container button {
+            background: #ffb612;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .track-container p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .link a {
+            color: #145388;
+            text-decoration: none;
+            margin-bottom: 50px;
+        }
+
+        /* .user-icon{
+            background: #ffcc00;;
+            border-radius: 50px;
+            width: 100px;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <img src="UPS-Logo.png" alt="UPS Logo">
+        </div>
+        <div class="actions">
+            <div><img src="search-icon-2-614x460.png" alt=""></div>
+            <div class="user-icon"><img src="1077114.png" alt=""></div>
+            <div>☰</div>
+        </div>
+    </div>
+
+    <div class="banner">
+        Save Up to 83%* on <br> Shipping
+    </div>
+
+    <div class="track-container">
+        <h2>Track <img src="" alt=""></h2>
+        <p> <i>Enter up to 12 tracking numbers, one per line.</i></p>
+
+        <div style="padding: 20px; text-align: center;">
+            <input type="text" id="trackingNumber" placeholder="Enter Tracking Number" />
+            <button onclick="trackPackage()">Track</button>
+            <p id="errorMessage" style="color: red; display: none;">Currently, we are not able to provide the tracking details. We can’t locate shipments if we haven’t received information from the shipper yet, or if the package information is older than 120 days.</p>
+          </div>
+        <p>Need to Change a Delivery?<br>You can access available options by tracking the package and then selecting
+            "Change My Delivery".</p>
+    </div>
+    </div>
+    <div class="link">
+        <a href="#">Track by Reference Number</a>
+    </div>
+    <script>
+        function trackPackage() {
+          var input = document.getElementById("trackingNumber").value.trim();
+          const validTrackingNumbers = ["281442392830", "PKG123456", "1Z691R0A1541509593"]; // your custom IDs
+      
+          if (validTrackingNumbers.includes(input)) {
+            // Redirect and pass the tracking number as a URL parameter
+            window.location.href = "tracking.html?trackingId=" + encodeURIComponent(input);
+          } else {
+            document.getElementById("errorMessage").style.display = "block";
+          }
+        }
+      </script>
+    
+</body>
+
+</html>
